@@ -1,0 +1,13 @@
+<%= @user.name %>
+<br />
+Seus amigos:
+<ul>
+<% @friends.each do |friend| %>
+	<li>
+	<%= image_tag friend['picture']['data']['url'] %><br />
+	<%= friend['name'] %>
+	<%= link_to "Presenteie", friend, method: :list_likes  %>
+	</li>
+
+<% end %>
+<ul>

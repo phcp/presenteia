@@ -3,7 +3,7 @@ Presenteia::Application.routes.draw do
   get "/auth/failure" => "sessions#failure", as: :auth_failure
   get "/logout" => "sessions#destroy", as: :logout
 
-  root :to => "sessions#index"
+  root :to => "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
