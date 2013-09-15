@@ -1,10 +1,13 @@
 <%= @user.name %>
-
-Seus amigos:
+<br />
+<%= @friend_name %> gosta de :
+<br />
 <ul>
-<% @likes.each do |like| %>
-	<li>
-	<%= like['name'] %>
-	</li>
+<% @friend_likes.each do |like| %>
+	<% if like['category'] == "Musician/band" %>
+		<li>
+		<%= like['name'] %>
+		</li>
+	<% end %>
 <% end %>
 <ul>

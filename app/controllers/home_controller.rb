@@ -32,10 +32,11 @@ class HomeController < ApplicationController
 		end
 
 		@user = User.find_by_id(session[:user_id])
-		likes_response = conn.get params[:friend_uid] + "?fields=music&access_token=" + "CAACNSFC2zdIBALscifGOU7FzeECGO7aYdELyttj6tgLTJrsMvSlZCgg6rKJZBBmFVykgdUsA9EZBh2oZBZCPpn7CZCbAox8wnz8QAfzU1vfTb7bJ4wkbL5BdRRxSNbAdAc55F4tiNRktaHcV8an3gA0CkYrd3J9awz7oObAHfmIgvl6KRZCChb3"#@user.access_token
+		likes_response = conn.get params[:friend_uid] + "?fields=name,music&access_token=" + @user.access_token
 
 		require 'json'
-		@likes = JSON.parse(likes_response.body)['friends']['data']
+		@friend_likes = JSON.parse(likes_response.body)['music']['data']
+		@friend_name = JSON.parse(likes_response.body)['name']
 
 		render :action => 'gifting_friend'
 	end
