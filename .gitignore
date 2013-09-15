@@ -14,3 +14,9 @@ capybara-*.html
 **.orig
 rerun.txt
 pickle-email-*.html
+*.swp
+bin/
+db/schema.rb
+tmp/**/*
+db/development.sqlite3
+db/test.sqlite3
