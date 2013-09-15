@@ -1,0 +1,10 @@
+<%= @user.name %>
+
+Seus amigos:
+<ul>
+<% @likes.each do |like| %>
+	<li>
+	<%= like['name'] %>
+	</li>
+<% end %>
+<ul>

@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 		session[:user_id] = nil
 		render :action => 'index', :notice => "Volte em breve!"
 	end
+	
 	def return_path
 		request.env['omniauth.origin']
 	end
