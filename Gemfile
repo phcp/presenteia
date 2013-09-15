@@ -46,3 +46,6 @@ end
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+
+gem 'debugger'
+gem 'lastfm-client', :git => 'http://github.com/pch/lastfm-client.git'

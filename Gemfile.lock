@@ -1,3 +1,10 @@
+GIT
+  remote: http://github.com/pch/lastfm-client.git
+  revision: 39c4792783f397fb8688e27909ac509a715b8312
+  specs:
+    lastfm-client (0.0.3)
+      json (>= 1.4.6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -35,6 +42,13 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.3.6)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     erubis (2.7.0)
     execjs (2.0.1)
     faraday (0.8.8)
@@ -130,8 +144,10 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  debugger
   jbuilder (~> 1.2)
   jquery-rails
+  lastfm-client!
   omniauth
   omniauth-facebook
   rails (= 4.0.0)
