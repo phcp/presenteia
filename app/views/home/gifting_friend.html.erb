@@ -1,13 +1,25 @@
 <%= @user.name %>
 <br />
-<%= @friend_name %> gosta de :
-<br />
-<ul>
-<% @friend_likes.each do |like| %>
-	<% if like['category'] == "Musician/band" %>
-		<li>
-		<%= like['name'] %>
-		</li>
-	<% end %>
-<% end %>
-<ul>
+  <% if @friend_likes.nil? || @friend_recomendation.nil? %>
+    Não foi possível fazer a recomendação, <%= @friend_name %> não possui dados suficientes!
+  <% else %>
+    <%= @friend_name %> gosta de :
+    <br />
+    <ul>
+      <% @friend_likes.each do |like| %>
+        <% if like['category'] == "Musician/band" %>
+          <li>
+            <%= like['name'] %>
+          </li>
+        <% end %>
+      <% end %>
+      <br />
+      O sistema recomenda:
+      <br />
+      <% @friend_recomendation.each do |reco| %>
+        <li>
+          CD: <%= reco.title %>, Artista: <%= reco.band.name %>
+      </li>
+    <% end %>
+    <ul>
+    <% end %>
