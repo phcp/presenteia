@@ -6,7 +6,7 @@ def getTopArtists
 
   top_artists["topartists"]["artist"].each do |artist|
     band = findOrCreateBand(artist["name"], nil)
-    getTopAlbuns(band) unless band.cds.empty?
+    getTopAlbuns(band)
     getSimilar(band)
   end
 end
@@ -16,7 +16,7 @@ def getSimilar(artist)
   begin
     similar_albuns["similarartists"]["artist"].each do |similar|
       band = findOrCreateBand(similar["name"], artist.id)
-      getTopAlbuns(band) unless band.cds.empty?
+      getTopAlbuns(band)
     end
   rescue
   end
