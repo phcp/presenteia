@@ -2,11 +2,15 @@
 <html>
 <head>
   <title>Presenteia</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href="/assets/favicon.png" rel="shortcut icon" type="image/x-icon" />
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "style" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<header><%= link_to (image_tag "logo.png"), root_path %></header>
 <%= yield %>
+<footer>Desenvolvido por Cynthia Raphaella, Jéssica Barbalho e Paulo Henrique.</footer>
 </body>
 </html>

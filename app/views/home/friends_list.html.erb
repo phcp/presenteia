@@ -1,14 +1,15 @@
-<%= @user.name %>
-<br />
-Seus amigos:
-<ul>
-<% @friends.each do |friend| %>
-	<li>
-	<%= image_tag friend['picture']['data']['url'] %> 
-	<%= friend['name'] %>
-	
-	<%= link_to "Presenteie", "/gift/" + friend['id'] %>
-	</li>
+<div class="welcome">Olá <%= @user.name %>, seja bem vindo ao Presenteia! Escolha um dos seus amigos abaixo para presentear:</div>
 
-<% end %>
-<ul>
+<div class="friends">
+	<ul>
+	<% @friends.each do |friend| %>
+		<%= link_to "/gift/" + friend['id'] do %>
+			<li>
+			<%= image_tag friend['picture']['data']['url'] %> 
+			<br />
+			<%= friend['name'] %>
+			</li>
+		<% end %>
+	<% end %>
+	</ul>
+</div>

@@ -1,25 +1,20 @@
-<%= @user.name %>
-<br />
-  <% if @friend_likes.nil? || @friend_recomendation.nil? %>
-    Não foi possível fazer a recomendação, <%= @friend_name %> não possui dados suficientes!
-  <% else %>
-    <%= @friend_name %> gosta de :
-    <br />
-    <ul>
-      <% @friend_likes.each do |like| %>
-        <% if like['category'] == "Musician/band" %>
-          <li>
-            <%= like['name'] %>
-          </li>
-        <% end %>
-      <% end %>
-      <br />
-      O sistema recomenda:
-      <br />
-      <% @friend_recomendation.each do |reco| %>
+<% if @friend_likes.nil? || @friend_recomendation.nil? %>
+  <div class="welcome">:( Não conseguimos encontrar nenhum presente para <%= @friend_name %>, pois não há dados suficientes de preferências.</div>
+<% else %>
+  <div class="welcome">Encontramos opções bem interessantes, vão surpreender <%= @friend_name %>! Clique no item que deseja comprar e já será direcionado à loja.</div>
+  <div class="gifts">
+  <ul>
+    <% @friend_recomendation.each do |reco| %>
+      <%= link_to reco.link_amazon, :target => "_blank" do %>
         <li>
-          CD: <%= reco.title %>, Artista: <%= reco.band.name %>
-      </li>
+          <%= image_tag reco.image %>
+          <br />
+          Álbum: <%= reco.title %>
+          <br />
+          Artista: <%= reco.band.name %>
+        </li>
+      <% end %>
     <% end %>
-    <ul>
-    <% end %>
+  <ul>
+  </div>
+<% end %>
